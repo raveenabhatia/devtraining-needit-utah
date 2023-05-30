@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description/>
+        <name>jSon Parser Practice</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[//SImple JSON object
+var obj = {
+    "firstName": "Raveena",
+    "lastName": "Bhatia"
+};
+var prsre = new JSONParser().parse(JSON.stringify(obj));
+gs.print(prsre.firstName + ' ' + prsre.lastName);
+
+//next example : 
+
+var obj = {"id":"0001","type":"donut","name":"Cake","image":{"url":"images/0001.jpg","width":200,"height":200},"thumbnail":{"url":"images/thumbnails/0001.jpg","width":32,"height":32}};
+var pawrse = new JSONParser().parse(JSON.stringify(obj));
+gs.print(pawrse.id);
+gs.print(pawrse.image.url);
+gs.print(pawrse.thumbnail.url);
+
+//Single Array JSON object :
+var obj={"arr":[{"parent":"","made_sla":"true","watch_list":"","u_when_needed":"2017-05-18 21:52:02","upon_reject":"cancel","sys_updated_on":"2017-01-30 22:51:35","u_what_needed":"legal1","approval_history":"","number":"NI002004","sys_updated_by":"admin","user_input":"","sys_created_on":"2017-01-30 22:51:35","state":"3"}]};
+/*
+
+{
+"arr": [
+{
+"parent": "",
+"made_sla": "true",
+"watch_list": "",
+"u_when_needed": "2017-05-18 21:52:02",
+"upon_reject": "cancel",
+"sys_updated_on": "2017-01-30 22:51:35",
+"u_what_needed": "legal1",
+"approval_history": "",
+"number": "NI002004",
+"sys_updated_by": "admin",
+"user_input": "",
+"sys_created_on": "2017-01-30 22:51:35",
+"state": "3"
+}
+]
+
+
+
+
+*/
+var pasrseVal=new JSONParser.parse(JSON.stringify(obj));
+gs.print(pasrseVal.arr[0].made_sla);
+
+//Nested array 
+
+var abc = {
+  "name": "Peter Parker",
+  "heroName": "Spiderman",
+  "friends": [
+    {"heroName": "Deadpool", "skills": ["Martial artist", "Assassin"]},
+    {"heroName": "Hulk", "skills": ["Superhuman Speed", "Superhuman Strength"]},
+    {"heroName": "Wolverine", "skills": ["Retractable bone claws", "Superhuman senses"]}
+  ]
+};
+
+var parsed = JSON.parse(JSON.stringify(abc));
+
+for (var i = 0; i < parsed.friends.length; i++) {
+  gs.print('HeroName: ' + parsed.friends[i].heroName);
+  gs.print('Skills: ' + parsed.friends[i].skills.join(', '));
+}
+
+//JSON Objetcs array
+var jsonString = '[{"name": "John", "age": 30}, {"name": "Jane", "age": 25}]';
+var arrayofJSONObj=convertToArray(jsonString);
+var parsed;
+function convertToArray(jsonString)
+{
+	try{
+	 parsed=JSON.parse(JSON.stringify(jsonString));
+}
+catch(e)
+{
+	gs.print('Error while parsing jSon obj');
+}
+}
+for (var i=0;i<arrayofJSONObj.length;i++)
+{
+  gs.print('Name : '+ arrayofJSONObj[i].name +' Age : '+arrayofJSONObj[i].age);
+}
+
+//JSON Objetcs array
+var jsonString = '[{"name": "John", "age": 30}, {"name": "Jane", "age": 25},{"name": "Lisbon", "age": 30}, {"name": "Cho", "age": 25}]';
+var arrayofJSONObj=convertToArray(jsonString);
+var parsed;
+function convertToArray(jsonString)
+{
+	try{
+	 parsed=JSON.parse(jsonString);
+
+}
+catch(e)
+{
+	gs.print('Error while parsing jSon obj');
+return[];
+}
+return parsed;
+}
+for (var i=0;i<arrayofJSONObj.length;i++)
+{
+  gs.print('Name : '+ arrayofJSONObj[i].name +' Age : '+arrayofJSONObj[i].age);
+}
+
+]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-24 13:32:42</sys_created_on>
+        <sys_id>65c48778478f6110f75e750cd36d4386</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>jSon Parser Practice</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_fix_65c48778478f6110f75e750cd36d4386</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-24 14:50:07</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

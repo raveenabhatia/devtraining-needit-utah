@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description/>
+        <name>Create a catalog from script</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[var cart = new sn_sc.CartJS();
+var newItem = cart.addToCart({
+	"sysparm_id": "SYS_ID_OF_CAT_ITEM",
+	"sysparm_quantity": "1",
+	"sysparm_requested_for": "SYS_ID_OF_REQUESTED_FOR_USER",
+	"variables":{
+		"acrobat": "true",
+		"photoshop": "false",
+		"Additional_software_requirements": ""
+	}
+});
+var checkoutInfo = cart.checkoutCart();]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-05-23 20:23:02</sys_created_on>
+        <sys_id>19e95bac47036110f75e750cd36d4311</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create a catalog from script</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_fix_19e95bac47036110f75e750cd36d4311</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-05-23 20:23:02</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>
